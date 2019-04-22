@@ -1,26 +1,29 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <List class="text-muted" msg="First Component"/>
-    <List msg="First Component"/>
+  <div
+    id="app"
+    class="my-2 mx-3"
+  >
+    <Navbar />
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import List from './components/List.vue'
+  import Navbar from './components/Navbar';
 
-export default {
-  name: 'app',
-  components: {
-    List
-  },
-}
+
+  export default {
+    components: {
+      Navbar
+    },
+    name: 'app',
+  }
 </script>
 
 <style lang="scss">
   @import '../node_modules/bootstrap/scss/bootstrap.scss';
 
-  List {
-    background-color: red;
+  body {
+    background-color: #323638;
   }
 </style>

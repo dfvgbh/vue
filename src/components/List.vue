@@ -1,15 +1,15 @@
 <template>
-  <div>
-    <div class="demo">
-      <h1>{{ msg }}</h1>
-    </div>
-    <div v-if="todos && todos.length">
-      <Item
-        v-for="todo of todos"
-        v-bind:name="todo.text"
-      >
-      </Item>
-    </div>
+  <div
+    v-if="todos && todos.length"
+    class="d-flex flex-wrap align-items-stretch"
+  >
+    <Item
+      v-for="todo of todos"
+      :key="todo.id"
+      v-bind:todo="todo"
+      role=""
+    >¡
+    </Item>
   </div>
 </template>
 
@@ -18,9 +18,6 @@ import axios from 'axios';
 import Item from './Item';
 
 export default {
-  props: {
-    msg: String
-  },
   components: {
     Item
   },
@@ -38,8 +35,5 @@ export default {
 }
 </script>
 
-<style scoped>
-.demo {
-  background-color: rosybrown;
-}
+<style scoped lang="scss">
 </style>
