@@ -3,23 +3,22 @@
     v-if="todos && todos.length"
     class="d-flex flex-wrap align-items-stretch"
   >
-    <Item
+    <ProductsItem
       v-for="todo of todos"
-      :key="todo.id"
       v-bind:todo="todo"
-      role=""
-    >¡
-    </Item>
+      :key="todo.id"
+    />
   </div>
 </template>
 
 <script>
 import axios from 'axios';
-import Item from './Item';
+import ProductsItem from './ProductsItem';
 
 export default {
+  name: 'ProductsList',
   components: {
-    Item
+    ProductsItem
   },
 
   data: () => ({

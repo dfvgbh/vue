@@ -1,16 +1,18 @@
 import Vue from 'vue'
-import App from './App.vue'
 import VueRouter from 'vue-router';
-import List from './components/List';
-import ItemPage from './components/ItemPage';
+import App from './App.vue'
+import ProductsListPage from './components/pages/ProductsListPage';
+import ProductsItemPage from './components/pages/ProductsItemPage';
+import AdminPage from './components/pages/AdminPage';
 
 Vue.use(VueRouter);
 
 const router = new VueRouter({
   mode: 'history',
   routes: [
-    { path: '/', component: List },
-    { path: '/item', component: ItemPage }
+    { path: '/', component: ProductsListPage },
+    { path: '/products/:id', component: ProductsItemPage },
+    { path: '/admin', component: AdminPage },
   ]
 });
 

@@ -1,12 +1,12 @@
 <template>
-  <h5>
-    DETAILS
-  </h5>
+  <div>
+    <h5>Hello admin!</h5>
+  </div>
 </template>
 
 <script>
   export default {
-    name: 'ItemPage',
+    name: 'AdminPage'
   }
 </script>
 

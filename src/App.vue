@@ -1,20 +1,16 @@
 <template>
-  <div
-    id="app"
-    class="my-2 mx-3"
-  >
-    <Navbar />
+  <div id="app">
+    <TheNavBar/>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
-  import Navbar from './components/Navbar';
-
+  import TheNavBar from './components/TheNavBar';
 
   export default {
     components: {
-      Navbar
+      TheNavBar
     },
     name: 'app',
   }
@@ -25,5 +21,6 @@
 
   body {
     background-color: #323638;
+    color: #fcfcfc;
   }
 </style>
