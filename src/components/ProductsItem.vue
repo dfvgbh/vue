@@ -1,13 +1,15 @@
 <template>
-  <div class="product-item col-3 p-1">
-    <div class="card p-2 h-100">
-      <h5>
-        {{ todo.text }}
+  <div class="product-item p-1 col-4 col-lg-3">
+    <div class="card p-2 h-100 d-flex flex-column">
+      <h4>
+        {{ product.name }}
+      </h4>
+      <small class="text-justify text-small">
+        {{ product.description }}
+      </small>
+      <h5 class="text-right mt-auto pt-2 mb-0">
+        {{  product.price }}$
       </h5>
-      <input
-        type="checkbox"
-        v-model="todo.completed"
-      />
     </div>
   </div>
 </template>
@@ -16,7 +18,7 @@
   export default {
     name: 'ProductsItem',
     props: {
-      todo: Object
+      product: Object
     }
   }
 </script>

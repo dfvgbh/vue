@@ -1,37 +1,37 @@
 <template>
   <div
-    v-if="todos && todos.length"
+    v-if="products && products.length"
     class="d-flex flex-wrap align-items-stretch"
   >
     <ProductsItem
-      v-for="todo of todos"
-      v-bind:todo="todo"
-      :key="todo.id"
+      v-for="product of products"
+      :product="product"
+      :key="product.id"
     />
   </div>
 </template>
 
 <script>
-import axios from 'axios';
-import ProductsItem from './ProductsItem';
+  import axios from 'axios';
+  import ProductsItem from './ProductsItem';
 
-export default {
-  name: 'ProductsList',
-  components: {
-    ProductsItem
-  },
+  export default {
+    name: 'ProductsList',
+    components: {
+      ProductsItem
+    },
 
-  data: () => ({
-    todos: []
-  }),
+    data() {
+      return {
+        products: []
+      }
+    },
 
-  created() {
-    axios.get('http://localhost:3000/todos')
-    .then(({ data }) => {
-      this.todos = data;
-    });
+    async created() {
+      const { data } = await axios.get('http://localhost:3000/products');
+      this.products = data;
+    }
   }
-}
 </script>
 
 <style scoped lang="scss">
