@@ -21,7 +21,12 @@
     components: {
       ProductsList,
       FiltersPanel,
-    }
+    },
+
+    beforeRouteUpdate (to, from, next) {
+      console.log(to);
+      next();
+    },
   }
 </script>
 

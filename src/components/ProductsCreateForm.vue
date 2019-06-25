@@ -41,7 +41,7 @@
     name: '',
     description: '',
     price: 0,
-  }
+  };
 
   export default {
     name: 'ProductsCreateForm',
@@ -59,8 +59,7 @@
           price,
         });
         alert('Success');
-        Object.assign(this, { ...DEFAULT_DATA })
-        console.log(this);
+        Object.assign(this, { ...DEFAULT_DATA });
       }
     }
   }

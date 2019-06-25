@@ -11,6 +11,14 @@
         {{  product.price }}$
       </h5>
     </div>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      @click="$emit('delete', product._id)"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
   </div>
 </template>
 
@@ -23,13 +31,23 @@
   }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
   .product-item {
     color: #343434;
   }
 
   .card {
     background-color: #eee;
+  }
+
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    &:hover {
+      color: darkred;
+    }
   }
 
 </style>

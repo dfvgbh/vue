@@ -1,18 +1,26 @@
 <template>
   <nav>
     <div
-      class="sticky-nav px-3"
+      class="sticky-nav d-flex px-3"
     >
       <router-link to="/">Home</router-link>
       <router-link to="/item">Details</router-link>
       <router-link to="/admin">Admin</router-link>
+      <SignInBadge 
+        class="ml-auto"
+      />
     </div>
   </nav>
 </template>
 
 <script>
+  import SignInBadge from './SignInBadge';
+
   export default {
-    name: 'TheNavbar'
+    name: 'TheNavbar',
+    components: {
+      SignInBadge
+    },
   }
 </script>
 

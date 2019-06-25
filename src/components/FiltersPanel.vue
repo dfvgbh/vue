@@ -3,14 +3,30 @@
     <div class="sticky-panel">
       <div class="wrapper w-100">
         <div class="filters-block p-2">
-          <h6>Checked:</h6>
-          <label><input type="checkbox"> is checked</label>
+          <h6>Price</h6>
+          <div class="d-flex">
+            <label>
+              From:
+              <input
+                v-model="from"
+                class="form-control"
+              >
+            </label>
+            <label>
+              To:
+              <input
+                v-model="to"
+                class="form-control"
+              >
+            </label>
+          </div>
         </div>
 
         <div class="text-right">
           <button
             type="button"
             class="btn btn-light mt-4"
+            @click="onFiltersApplied"
           >apply</button>
         </div>
       </div>
@@ -20,7 +36,25 @@
 
 <script>
   export default {
-    name: 'FiltersPanel'
+    name: 'FiltersPanel',
+    data() {
+      return {
+        from: '',
+        to: '',
+      }
+    },
+    methods: {
+      onFiltersApplied() {
+        const { from, to } = this;
+        this.$router.push({
+          path: '/',
+          query: {
+            ...from && { from },
+            ...to && { to }
+          }
+        });
+      }
+    }
   }
 </script>
 

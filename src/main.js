@@ -10,7 +10,7 @@ Vue.use(VueRouter);
 const router = new VueRouter({
   mode: 'history',
   routes: [
-    { path: '/', component: ProductsListPage },
+    { path: '', component: ProductsListPage },
     { path: '/products/:id', component: ProductsItemPage },
     { path: '/admin', component: AdminPage },
   ]
