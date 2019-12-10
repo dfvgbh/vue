@@ -4,7 +4,7 @@
       <div>
         <FiltersPanel/>
       </div>
-      <div class="py-2 px-3">
+      <div class="w-100 py-2 px-3">
         <h5>Products</h5>
         <ProductsList/>
       </div>
