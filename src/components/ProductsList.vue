@@ -40,12 +40,12 @@
       }
     },
 
-    beforeRouteUpdate (to, from, next) {
+    beforeRouteUpdate () {
       console.log('updated');
     },
 
     watch: {
-      async '$route' (to, from) {
+      async $route(to) {
         const { query } = to;
         const { data } = await getProducts({
           ...query.from && { from: query.from },
@@ -56,12 +56,19 @@
     },
 
     async created() {
-      const { from, to } = this.$route.query;
-      const { data } = await getProducts({
-        ...from && { from },
-        ...to && { to }
+      console.log(this.$graph.query);
+      await this.$graph.query.run(`{ products { _id, name, price, description } }`).then(response => {
+        console.log(response);
+
+        this.products = response.products;
       });
-      this.products = data;
+
+      // const { from, to } = this.$route.query;
+      // const { data } = await getProducts({
+      //   ...from && { from },
+      //   ...to && { to }
+      // });
+
     }
   }
 </script>
